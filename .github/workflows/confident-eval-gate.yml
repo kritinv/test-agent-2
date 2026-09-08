@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r agents/02-code-review-agent/requirements.txt
       - name: Confident PR Eval Gate
-        uses: confident-ai/deepeval-actions/actions/eval-gate@v1
+        uses: confident-ai/confident-actions/actions/eval-gate@v1
         env:
           CONFIDENT_SCAN_API_KEY: ${{ secrets.CONFIDENT_SCAN_API_KEY }}
         with:
