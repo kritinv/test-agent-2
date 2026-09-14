@@ -12,10 +12,12 @@ Usage:
 import argparse
 
 from dotenv import load_dotenv
+from confident_trace import init, span
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
 load_dotenv()
+init()
 
 SYSTEM_PROMPT = """You are an expert code reviewer. Analyze the provided code and return a structured review covering:
 
@@ -28,6 +30,7 @@ SYSTEM_PROMPT = """You are an expert code reviewer. Analyze the provided code an
 Format: Use markdown. Rate overall quality as: 🟢 Good / 🟡 Needs Work / 🔴 Critical Issues."""
 
 
+@span(type="agent")
 def review_code(code: str, language: str = "python") -> str:
     llm = ChatOpenAI(model="gpt-4o", temperature=0)
     messages = [
