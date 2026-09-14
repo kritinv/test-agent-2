@@ -1,4 +1,5 @@
 langchain==1.4.0
 langchain-core==1.6.1
 langchain-openai==1.6.0
+confident-trace @ git+https://github.com/confident-ai/confident-trace@0ac1388c977da608e1b0d8183b75d1019c2f6cb1#subdirectory=python
 python-dotenv==1.2.3
